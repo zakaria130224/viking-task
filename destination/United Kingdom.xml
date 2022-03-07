@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xmlResModel>
+    <country>United Kingdom</country>
+    <covidInfo/>
+    <date>16.09.21&#13;</date>
+    <hotelsInCity>
+        <cityName>London</cityName>
+        <hotels/>
+    </hotelsInCity>
+</xmlResModel>

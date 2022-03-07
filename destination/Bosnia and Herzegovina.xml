@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xmlResModel>
+    <country>Bosnia and Herzegovina</country>
+    <covidInfo/>
+    <date>12.07.20&#13;</date>
+    <hotelsInCity>
+        <cityName>Banja Luka</cityName>
+        <hotels>
+            <hotel>
+                <latitude>44.767411</latitude>
+                <longitude>17.195277</longitude>
+                <name>Hostel Herz</name>
+            </hotel>
+            <hotel>
+                <latitude>44.8025</latitude>
+                <longitude>17.20843</longitude>
+                <name>Hostel Room</name>
+            </hotel>
+            <hotel>
+                <latitude>44.762438</latitude>
+                <longitude>17.199465</longitude>
+                <name>Hermes Lux Apartment</name>
+            </hotel>
+        </hotels>
+    </hotelsInCity>
+</xmlResModel>

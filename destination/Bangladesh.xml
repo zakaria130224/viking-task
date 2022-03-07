@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xmlResModel>
+    <country>Bangladesh</country>
+    <covidInfo/>
+    <date>23.11.21&#13;</date>
+    <hotelsInCity>
+        <cityName>Dhaka</cityName>
+        <hotels>
+            <hotel>
+                <latitude>23.781451</latitude>
+                <longitude>90.417806</longitude>
+                <name>The Olives</name>
+            </hotel>
+            <hotel>
+                <latitude>23.793194</latitude>
+                <longitude>90.41491</longitude>
+                <name>The Westin Dhaka</name>
+            </hotel>
+            <hotel>
+                <latitude>23.795831</latitude>
+                <longitude>90.408279</longitude>
+                <name>Hotel Dhaka Garden Inn</name>
+            </hotel>
+        </hotels>
+    </hotelsInCity>
+</xmlResModel>
