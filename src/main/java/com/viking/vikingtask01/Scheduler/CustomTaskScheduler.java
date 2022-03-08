@@ -16,7 +16,7 @@ public class CustomTaskScheduler {
     @Autowired
     CamelRouteTask01 camelRoute;
 
-    //@Scheduled(cron = "${scheduler.cronjob}")
+    @Scheduled(cron = "${scheduler.cronjob}")
     //@Scheduled(fixedRate = 100)
     //@Scheduled(initialDelay=0, fixedRate=4*60*60*1000)
     public void taskScheduler() throws Exception {
