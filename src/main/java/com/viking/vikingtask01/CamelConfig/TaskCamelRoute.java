@@ -1,4 +1,4 @@
-package com.viking.vikingtask01.ConfCamel;
+package com.viking.vikingtask01.CamelConfig;
 
 import org.apache.camel.builder.RouteBuilder;
 import org.slf4j.Logger;

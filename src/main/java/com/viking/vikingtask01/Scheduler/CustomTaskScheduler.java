@@ -1,6 +1,6 @@
 package com.viking.vikingtask01.Scheduler;
 
-import com.viking.vikingtask01.ConfCamel.TaskCamelRoute;
+import com.viking.vikingtask01.CamelConfig.TaskCamelRoute;
 import org.apache.camel.CamelContext;
 import org.apache.camel.impl.DefaultCamelContext;
 import org.slf4j.Logger;

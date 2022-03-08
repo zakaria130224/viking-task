@@ -1,4 +1,4 @@
-package com.viking.vikingtask01.ConfCamel;
+package com.viking.vikingtask01.CamelConfig;
 
 import com.viking.vikingtask01.Models.CSVDataModel;
 import com.viking.vikingtask01.Models.XMLResModel;
@@ -12,8 +12,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-
-import java.text.ParseException;
 
 
 @Service
