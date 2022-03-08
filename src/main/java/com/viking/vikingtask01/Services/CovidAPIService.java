@@ -35,7 +35,8 @@ public class CovidAPIService {
             Gson gson=new Gson();
             CovidInfo covid_data=gson.fromJson(resCovid.getDatalist().get(0).toString(), CovidInfo.class);
             System.out.println(covid_data);
-            return covid_data;
+           // return covid_data;
+            return new CovidInfo("454","454","454","454","454","6767");
         }catch (Exception e){
             logger.error(e.getMessage());
             return new CovidInfo();

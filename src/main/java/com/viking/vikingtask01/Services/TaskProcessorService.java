@@ -38,18 +38,14 @@ public class TaskProcessorService {
             logger.error("Failed on gathering hotel info: {}",e.getMessage());
         }
 
-        SimpleDateFormat yy = new SimpleDateFormat( "dd.MM.yy" );
-        SimpleDateFormat yyyy = new SimpleDateFormat( "yyyy-MM-dd" );
-        Date actualDate = null;
-        try {
-            actualDate = yy.parse( dataModel.getDate() );
-        }
-        catch ( ParseException pe ) {
-            logger.error(pe.getMessage());
-        }
+        //String regex = "^(1[0-2]|0[1-9]).(3[01]|[12][0-9]|0[1-9]).[0-9]{2}$";
+        String regex = "^(3[01]|[12][0-9]|0[1-9]).(1[0-2]|0[1-9]).[0-9]{2}$";
+        String newDate=dataModel.getDate();
+        if (newDate.trim().matches(regex))
+            newDate=getDateInAPIFormat(dataModel.getDate());
 
         try {
-            CovidInfo covid=covidAPIService.getCovidByCountry(dataModel.getCountry(),yyyy.format( actualDate ));
+            CovidInfo covid=covidAPIService.getCovidByCountry(dataModel.getCountry(),newDate);
             xmlResModel.setCovidInfo(covid);
             //xmlResModel.setCovidInfo(new CovidInfo("4822","6455","545","566","100","51"));
 
@@ -59,4 +55,19 @@ public class TaskProcessorService {
 
         return xmlResModel;
     }
+    private String getDateInAPIFormat(String date)
+    {
+        SimpleDateFormat yy = new SimpleDateFormat( "dd.MM.yy" );
+        SimpleDateFormat yyyy = new SimpleDateFormat( "yyyy-MM-dd" );
+        Date actualDate = null;
+        try {
+            actualDate = yy.parse( date);
+        }
+        catch ( ParseException pe ) {
+            logger.error(pe.getMessage());
+        }
+
+        return yyyy.format( actualDate );
+    }
+
 }

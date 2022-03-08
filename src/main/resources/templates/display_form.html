@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>Result</title>
+	<link rel="stylesheet"
+		  href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<!--	<link rel="stylesheet" type="text/css"-->
+<!--		  th:href="@{/css/display_form.css}" />-->
+</head>
+<body>
+
+<div class="container my-3">
+	<div class="row">
+		<div class="col-md-8 mx-auto">
+			<h2>Result</h2>
+			<table class="table-responsive">
+				<tbody>
+				<tr>
+					<td><strong>Country:</strong></td>
+					<td><span id="country" th:text="${data.Country}"></span></td>
+				</tr>
+				<tr>
+					<td><strong>City:</strong></td>
+					<td><span id="city" th:text="${data.HotelsInCity.CityName}"></span></td>
+
+				</tr>
+				<tr>
+					<td><strong>Date:</strong></td>
+					<td><span id="date" th:text="${data.Date}"></span></td>
+
+				</tr>
+				<tr>
+					<table border="1">
+						<tbody>
+						<tr><strong>Hotels:</strong></tr>
+						<tr>
+							<th>Name</th>
+							<th>Latitude</th>
+							<th>Longitude</th>
+						</tr>
+						<tr th:each="item : ${data.HotelsInCity.Hotels.Hotel}">
+							<td><span th:text="${item.name}"> Name </span></td>
+							<td><span th:text="${item.latitude}"> Latitude </span></td>
+							<td><span th:text="${item.longitude}"> Longitude </span></td>
+						</tr>
+						</tbody>
+					</table>
+				</tr>
+
+				<tr>
+					<td><strong>Covid info:</strong></td>
+				</tr>
+				<tr>
+					<table border="1">
+						<tbody>
+						<tr>
+							<th>confirmed</th>
+							<th>recovered</th>
+							<th>critical</th>
+							<th>deaths</th>
+							<th>latitude</th>
+							<th>longitude</th>
+						</tr>
+						<tr>
+							<td><span th:text="${data.CovidInfo.confirmed}"></span></td>
+							<td><span th:text="${data.CovidInfo.recovered}"></span></td>
+							<td><span th:text="${data.CovidInfo.critical}"></span></td>
+							<td><span th:text="${data.CovidInfo.deaths}"></span></td>
+							<td><span th:text="${data.CovidInfo.latitude}"></span></td>
+							<td><span th:text="${data.CovidInfo.longitude}"></span></td>
+
+						</tr>
+						</tbody>
+					</table>
+				</tr>
+
+				<tr>
+					<button type="submit"  onclick="exportXML()" class="btn btn-primary btn-block mt-3">Export</button>
+				</tr>
+
+
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+	$(document).ready(function(	){
+
+	});
+	var exportXML=	function () {
+		var base_url = window.location.origin;
+		var country=$("#country").text();
+		var city=$("#city").text();
+		var date=$("#date").text();
+		window.location.href=base_url+"/export/"+country+"/"+city+"/"+date;
+		// $.ajax({
+		// 	type: "GET",
+		// 	url: "/export/"+country+"/"+city+"/"+date,
+		// 	async: false,
+		// 	success: function(data){
+		// 		alert(data);
+		// 		$('#label').text(data);
+		// 	}
+		// });
+	};
+
+	$('.csv_dln_btn').click(function(){
+		var searchType = $("#searchType").val();
+		var searchKey = $("#searchfield").val();
+		window.location.href=base_url+'/getPriorityListCsv?searchType='+searchType+"&searchKey="+searchKey;
+	});
+
+</script>
+</body>
+</html>

@@ -15,7 +15,7 @@ import org.springframework.stereotype.Service;
 
 
 @Service
-public class CamelProcessor implements Processor {
+public class CamelProcessorTask01 implements Processor {
     private final Logger logger = LoggerFactory.getLogger(getClass().getName());
 
     @Value("${ftp.user}")

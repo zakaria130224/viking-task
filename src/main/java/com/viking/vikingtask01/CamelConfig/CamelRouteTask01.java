@@ -9,7 +9,7 @@ import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
 @Service
-public class TaskCamelRoute {
+public class CamelRouteTask01 {
     private final Logger logger = LoggerFactory.getLogger(getClass().getName());
 
     @Value("${ftp.user}")
@@ -32,7 +32,7 @@ public class TaskCamelRoute {
 
 
     @Autowired
-    private CamelProcessor camelProcessor;
+    private CamelProcessorTask01 camelProcessorTask01;
 
     @Async
     public RouteBuilder createRouteBuilder() {
@@ -43,7 +43,7 @@ public class TaskCamelRoute {
                 //from("file:D:\\WorkStation\\viking-task01\\source?fileName=data.csv&noop=true&idempotent=true")
                 from(String.format("ftp://%s@%s:%s/%s/?password=%s&fileName=%s&passiveMode=true",ftpUser,ftpHost,ftpPort,ftpPath,ftpPassword,ftpFileName))
                         .split(body().tokenize("\n",1,true))
-                        .process(camelProcessor)
+                        .process(camelProcessorTask01)
                         //.marshal(populateStreamDef())
                         .to("log:?level=INFO&showBody=true")
                         .recipientList(header("outpath"));

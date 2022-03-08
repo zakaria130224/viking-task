@@ -1,6 +1,6 @@
 package com.viking.vikingtask01.Scheduler;
 
-import com.viking.vikingtask01.CamelConfig.TaskCamelRoute;
+import com.viking.vikingtask01.CamelConfig.CamelRouteTask01;
 import org.apache.camel.CamelContext;
 import org.apache.camel.impl.DefaultCamelContext;
 import org.slf4j.Logger;
@@ -14,9 +14,9 @@ public class CustomTaskScheduler {
     private final Logger logger = LoggerFactory.getLogger(getClass().getName());
 
     @Autowired
-    TaskCamelRoute camelRoute;
+    CamelRouteTask01 camelRoute;
 
-    @Scheduled(cron = "${scheduler.cronjob}")
+    //@Scheduled(cron = "${scheduler.cronjob}")
     //@Scheduled(fixedRate = 100)
     //@Scheduled(initialDelay=0, fixedRate=4*60*60*1000)
     public void taskScheduler() throws Exception {
