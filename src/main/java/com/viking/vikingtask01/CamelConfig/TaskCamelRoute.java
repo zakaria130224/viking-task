@@ -32,7 +32,7 @@ public class TaskCamelRoute {
 
 
     @Autowired
-    CamelProcessor camelProcessor;
+    private CamelProcessor camelProcessor;
 
     @Async
     public RouteBuilder createRouteBuilder() {
@@ -42,7 +42,6 @@ public class TaskCamelRoute {
                 //errorHandler(deadLetterChannel("mock:error"));
                 //from("file:D:\\WorkStation\\viking-task01\\source?fileName=data.csv&noop=true&idempotent=true")
                 from(String.format("ftp://%s@%s:%s/%s/?password=%s&fileName=%s&passiveMode=true",ftpUser,ftpHost,ftpPort,ftpPath,ftpPassword,ftpFileName))
-                        //from("ftp://userX@localhost:21/data/?password=zaka1324&fileName=data.csv&passiveMode=true")
                         .split(body().tokenize("\n",1,true))
                         .process(camelProcessor)
                         //.marshal(populateStreamDef())
