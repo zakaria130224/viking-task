@@ -34,6 +34,8 @@ public class WebClientService {
             if (response.code()== HttpStatus.SC_OK){
                 String resbody=response.body().string();
                 Object json = new JSONTokener(resbody).nextValue();
+
+                //Check JSONObject or JSONArray ???
                 if (json instanceof JSONObject)
                 {
                     return new HTTPClientResponse(HttpStatus.SC_OK,new JSONObject(resbody));

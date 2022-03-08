@@ -36,6 +36,7 @@ public class CamelProcessorTask02 implements Processor {
         return list;
     }
 
+    //Get Country list for Dropdown
     public List<Country> getCountrylist() {
         List<Country> countries =new ArrayList<>();
         list.forEach(x->{

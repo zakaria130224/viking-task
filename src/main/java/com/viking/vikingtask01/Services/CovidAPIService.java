@@ -33,10 +33,10 @@ public class CovidAPIService {
         try {
             HTTPClientResponse resCovid=webClientService.get(baseUrl.replace("#COUNTRY",country).replace("#DATE",date),apihost,apikey);
             Gson gson=new Gson();
+            //Mapping to object
             CovidInfo covid_data=gson.fromJson(resCovid.getDatalist().get(0).toString(), CovidInfo.class);
             System.out.println(covid_data);
-           // return covid_data;
-            return new CovidInfo("454","454","454","454","454","6767");
+            return covid_data;
         }catch (Exception e){
             logger.error(e.getMessage());
             return new CovidInfo();

@@ -38,7 +38,6 @@ public class TaskProcessorService {
             logger.error("Failed on gathering hotel info: {}",e.getMessage());
         }
 
-        //String regex = "^(1[0-2]|0[1-9]).(3[01]|[12][0-9]|0[1-9]).[0-9]{2}$";
         String regex = "^(3[01]|[12][0-9]|0[1-9]).(1[0-2]|0[1-9]).[0-9]{2}$";
         String newDate=dataModel.getDate();
         if (newDate.trim().matches(regex))

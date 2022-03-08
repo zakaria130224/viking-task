@@ -13,6 +13,8 @@ import java.io.StringWriter;
 @Service
 public class XMLWriterService {
     private final Logger logger = LoggerFactory.getLogger(getClass().getName());
+
+    //Response model to XML String
     public String jaxbObjectToXML(XMLResModel res)
     {
         try

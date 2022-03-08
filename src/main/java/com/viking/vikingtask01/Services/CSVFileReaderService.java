@@ -12,6 +12,7 @@ import java.util.List;
 public class CSVFileReaderService {
     private final Logger logger = LoggerFactory.getLogger(getClass().getName());
 
+    //Get single data
     public CSVDataModel getDataFromCSVLine(String loc){
 
         String[] arr= loc.split(",");
@@ -27,6 +28,7 @@ public class CSVFileReaderService {
 
     }
 
+    //Get all data in list
     public List<CSVDataModel> getDataFromCSV(String loc){
 
 

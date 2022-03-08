@@ -45,6 +45,7 @@ public class HotelService {
                {
                    Object hotels = map.get("entities");
                    Arrays.stream(((ArrayList) hotels).toArray()).limit(3).collect(Collectors.toList()).forEach(x->{
+                       //Mapping to object
                        HotelDetails hotelDetails=om.convertValue(x,HotelDetails.class);
                        list.add(hotelDetails);
                    });
